@@ -25,3 +25,9 @@ New-Item -Path .gitignore -Value "venv/`n__pycache__/`n.env" -Force
 
 # 8. Open VS Code in this folder
 code .
+
+# 9. Open Gemini CLI
+# Assuming you have a specific CLI alias. If using the python SDK, you might start a script here.
+# Example placeholder:
+Write-Host "Launching Gemini CLI..." -ForegroundColor Green
+# gemini start  <-- Replace with your actual specific CLI command
