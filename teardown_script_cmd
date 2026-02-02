@@ -1,0 +1,28 @@
+:: 1. Freeze requirements
+pip freeze > requirements.txt
+
+:: 2. Initialize Git and Upload
+:: REPLACE THIS URL
+set "REPO_URL=https://github.com/YourUsername/YourRepo.git"
+
+git init
+git remote add origin %REPO_URL%
+git add .
+git commit -m "Final project upload"
+git push -u origin master
+
+:: 3. Verify status
+git status
+
+:: 4. STOP: Check your GitHub repo in the browser to ensure files are there!
+
+:: 5. Teardown (Delete Local Project)
+:: Deactivate venv first to unlock files
+deactivate
+
+:: Move up one level
+cd ..
+
+:: Delete the folder and everything in it
+rmdir /s /q "%PROJECT_NAME%"
+echo Local project deleted.
