@@ -1,0 +1,32 @@
+# 1. Ensure you are in the project folder and venv is active
+# .\venv\Scripts\Activate.ps1
+
+# 2. Freeze requirements (snapshots your exact library versions)
+pip freeze > requirements.txt
+
+# 3. Initialize Git and Add Remote
+# REPLACE <YOUR_REPO_URL> with the actual GitHub URL you created for this project
+$repoUrl = "<YOUR_REPO_URL>" 
+
+git init
+git remote add origin $repoUrl
+
+# 4. Add, Commit, and Push
+git add .
+git commit -m "Final project upload: Requirements frozen"
+git push -u origin master
+
+# 5. Verify Upload (Check status)
+Write-Host "Checking git status..." -ForegroundColor Cyan
+git status
+
+# 6. STOP AND CHECK
+# Visually verify on GitHub.com that your files are there.
+
+# 7. Teardown (Delete Local Project)
+# Move up one level so we aren't locking the folder
+Set-Location ..
+
+# Delete the project folder and the virtual environment
+Remove-Item $projectName -Recurse -Force
+Write-Host "Local project deleted. Workflow complete." -ForegroundColor Red
