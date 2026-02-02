@@ -1,0 +1,33 @@
+:: 1. Define Project Name (Set this variable first)
+set "PROJECT_NAME=DataAnalysis_Workspace"
+
+:: 2. Create Directory and Enter it
+mkdir "%PROJECT_NAME%"
+cd "%PROJECT_NAME%"
+
+:: 3. Create Virtual Environment
+echo Creating Virtual Environment...
+python -m venv venv
+
+:: 4. Activate Environment
+call venv\Scripts\activate.bat
+
+:: 5. Upgrade Pip
+python -m pip install --upgrade pip
+
+:: 6. Install Libraries
+echo Installing Libraries...
+pip install numpy pandas scipy matplotlib seaborn plotly scikit-learn statsmodels xgboost lightgbm tensorflow torch jupyterlab openpyxl requests python-dotenv
+
+:: 7. Create a .gitignore to exclude the venv
+echo venv/ > .gitignore
+echo __pycache__/ >> .gitignore
+echo .env >> .gitignore
+
+:: 8. Open VS Code
+code .
+
+:: 9. Open Gemini CLI
+:: (Assuming you have a specific command or script, otherwise this is a placeholder)
+echo Launching Gemini CLI...
+:: gemini start
