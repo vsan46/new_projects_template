@@ -24,8 +24,9 @@ echo venv/ > .gitignore
 echo __pycache__/ >> .gitignore
 echo .env >> .gitignore
 
-:: 8. Open VS Code
+:: 8. Open VS Code or Antigravity
 code .
+antigravity
 
 :: 9. Open Gemini CLI
 :: (Assuming you have a specific command or script, otherwise this is a placeholder)
