@@ -23,8 +23,9 @@ pip install numpy pandas scipy matplotlib seaborn plotly scikit-learn statsmodel
 # 7. Create a dummy .gitignore to prevent uploading the heavy venv later
 New-Item -Path .gitignore -Value "venv/`n__pycache__/`n.env" -Force
 
-# 8. Open VS Code in this folder
+# 8. Open VS Code in this folder or Antigravity
 code .
+antigravity
 
 # 9. Open Gemini CLI
 # Assuming you have a specific CLI alias. If using the python SDK, you might start a script here.
