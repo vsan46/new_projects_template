@@ -1,0 +1,38 @@
+:: 1. Define Project Variables
+:: Replace this URL with your actual repository
+set "REPO_URL=https://github.com/username/your-data-project.git"
+set "PROJECT_NAME=DataAnalysis_Workspace"
+
+:: 2. Clone Project from GitHub
+echo Cloning project from GitHub...
+:: This creates the directory "%PROJECT_NAME%" containing the repo
+git clone %REPO_URL% "%PROJECT_NAME%"
+cd "%PROJECT_NAME%"
+
+:: 3. Create Virtual Environment
+echo Creating Virtual Environment...
+python -m venv venv
+
+:: 4. Activate Environment
+call venv\Scripts\activate.bat
+
+:: 5. Upgrade Pip
+python -m pip install --upgrade pip
+
+:: 6. Install Libraries
+echo Installing Libraries...
+pip install numpy pandas scipy matplotlib seaborn plotly scikit-learn statsmodels xgboost lightgbm tensorflow torch jupyterlab openpyxl requests python-dotenv
+
+:: 7. Create a .gitignore to exclude the venv
+echo venv/ > .gitignore
+echo __pycache__/ >> .gitignore
+echo .env >> .gitignore
+
+:: 8. Open VS Code or Antigravity
+code .
+antigravity
+
+:: 9. Open Gemini CLI
+:: (Assuming you have a specific command or script, otherwise this is a placeholder)
+echo Launching Gemini CLI...
+:: gemini start

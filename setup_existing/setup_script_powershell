@@ -1,0 +1,40 @@
+# 1. Define Variables
+# Replace with your specific repository URL
+$repoUrl = "https://github.com/username/your-data-project.git"
+$projectName = "DataAnalysis_Workspace"
+
+# 2. Clone Project from GitHub
+# We use git clone instead of New-Item
+Write-Host "Cloning repository..." -ForegroundColor Cyan
+git clone $repoUrl $projectName
+
+# Enter the directory
+Set-Location $projectName
+
+# 3. Create Virtual Environment
+Write-Host "Creating Virtual Environment..." -ForegroundColor Cyan
+python -m venv venv
+
+# 4. Activate Environment
+# Note: You may need to run 'Set-ExecutionPolicy Unrestricted -Scope Process' if this fails
+.\venv\Scripts\Activate.ps1
+
+# 5. Upgrade Pip
+python.exe -m pip install --upgrade pip
+
+# 6. Install Libraries (Added suggestions included)
+Write-Host "Installing Libraries... This may take a moment." -ForegroundColor Cyan
+pip install numpy pandas scipy matplotlib seaborn plotly scikit-learn statsmodels xgboost lightgbm tensorflow torch jupyterlab openpyxl requests python-dotenv
+
+# 7. Create a dummy .gitignore to prevent uploading the heavy venv later
+New-Item -Path .gitignore -Value "venv/`n__pycache__/`n.env" -Force
+
+# 8. Open VS Code in this folder or Antigravity
+code .
+antigravity
+
+# 9. Open Gemini CLI
+# Assuming you have a specific CLI alias. If using the python SDK, you might start a script here.
+# Example placeholder:
+Write-Host "Launching Gemini CLI..." -ForegroundColor Green
+# gemini start  <-- Replace with your actual specific CLI command
